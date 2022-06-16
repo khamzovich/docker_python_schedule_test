@@ -9,7 +9,7 @@ import os
 
 telegram_token = os.environ['TG_TOKEN']
 user_id = os.environ['USER_ID']
-g_bq = os.environ['G_BQ']
+# g_bq = os.environ['G_BQ']
 
 
 def test_report(chat_id, telegram_token, msg):
