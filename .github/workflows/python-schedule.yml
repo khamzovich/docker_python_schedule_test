@@ -29,10 +29,11 @@ jobs:
 #         pip install --no-cache-dir user-agents==2.2.0
 
         - name: Run Python script
-          run: python3 hello.py
           env:
             TG_TOKEN: ${{ secrets.TG_TOKEN }}
             USER_ID: ${{ secrets.USER_ID }}
+          run: python3 hello.py
+
 #             CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }} \
 #             CLIENT_ID=${{ secrets.CLIENT_ID }} \
 #             CLIENT_X509_CERT_URL=${{ secrets.CLIENT_X509_CERT_URL }} \
