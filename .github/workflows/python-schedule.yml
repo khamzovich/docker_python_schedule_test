@@ -7,17 +7,26 @@ name: "python-schedule"
 on: push
 
 jobs:
-    test:
-        runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v3
-        - uses: actions/setup-python@v2
-          with:
-            python-version: '3.8'
-        - name: Install required libraries
-          run: |
-            python3 -m pip install --upgrade pip
-            python3 -m pip install -U python-telegram-bot
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'
+            
+      # Configure AWS Credentials
+#       - name: Configure AWS Credentials
+#         uses: aws-actions/configure-aws-credentials@v1
+#         with:
+#           TG_TOKEN: ${{ secrets.TG_TOKEN }}
+#           USER_ID: ${{ secrets.USER_ID }}
+#           CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
+          
+      - name: Install required libraries
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install -U python-telegram-bot
 #         pip install --no-cache-dir google-api-python-client==1.12.11
 #         pip install --no-cache-dir google-auth==1.35.0
 #         pip install --no-cache-dir google-auth-httplib2==0.0.4
@@ -27,13 +36,13 @@ jobs:
 #         pip install --no-cache-dir sshtunnel==0.4.0
 #         pip install --no-cache-dir user-agents==2.2.0
 
-        - name: Run Python script
-          env:
-            TG_TOKEN: ${{ secrets.TG_TOKEN }}
-            USER_ID: ${{ secrets.USER_ID }}
-            CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
-          run: |
-            python3 hello.py
+      - name: Run Python script
+        env:
+          TG_TOKEN: ${{ secrets.TG_TOKEN }}
+          USER_ID: ${{ secrets.USER_ID }}
+          CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
+        run: |
+          python3 hello.py
 
 #             CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }} \
 #             CLIENT_ID=${{ secrets.CLIENT_ID }} \
