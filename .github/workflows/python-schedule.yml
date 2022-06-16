@@ -41,8 +41,7 @@ jobs:
 #           TG_TOKEN: ${{ secrets.TG_TOKEN }}
 #           USER_ID: ${{ secrets.USER_ID }}
 #           CLIENT_X509_CERT_URL: ${{ secrets.CLIENT_X509_CERT_URL }}
-        run: |
-          python3 hello.py
+        run: TG_TOKEN=${{ secrets.TG_TOKEN }} USER_ID=${{ secrets.USER_ID }} GOOGLE_CREDENTIALS=${{ secrets.GOOGLE_CREDENTIALS }} python3 hello.py
 
 #             CLIENT_EMAIL=${{ secrets.CLIENT_EMAIL }} \
 #             CLIENT_ID=${{ secrets.CLIENT_ID }} \
