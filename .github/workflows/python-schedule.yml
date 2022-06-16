@@ -10,7 +10,7 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
-        - uses: actions/checkout@main
+        - uses: actions/checkout@v3
         - uses: actions/setup-python@v2
           with:
             python-version: '3.8'
@@ -31,4 +31,5 @@ jobs:
           run: |
             TG_TOKEN=${{ secrets.TG_TOKEN }} \
             USER_ID=${{ secrets.USER_ID }} \
+            G_BQ=${{ secrets.G_BQ }} \
             python3 hello.py
