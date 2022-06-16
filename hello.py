@@ -18,7 +18,7 @@ def test_report(chat_id, telegram_token, msg):
     bot.sendMessage(chat_id=chat_id, text=msg)
 
 
-credentials = service_account.Credentials.from_service_account_file(g_bq)
+credentials = service_account.Credentials.from_service_account_info(g_bq)
 project_id = 'medpoint-gbq'
 
 
