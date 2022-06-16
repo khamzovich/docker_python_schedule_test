@@ -18,10 +18,10 @@ jobs:
           run: |
             python3 -m pip install --upgrade pip
             python3 -m pip install -U python-telegram-bot
-            pip install --no-cache-dir google-api-python-client==1.12.11
-            pip install --no-cache-dir google-auth==1.35.0
-            pip install --no-cache-dir google-auth-httplib2==0.0.4
-            pip install --no-cache-dir pandas-gbq -U
+#         pip install --no-cache-dir google-api-python-client==1.12.11
+#         pip install --no-cache-dir google-auth==1.35.0
+#         pip install --no-cache-dir google-auth-httplib2==0.0.4
+#         pip install --no-cache-dir pandas-gbq -U
 #         pip install --no-cache-dir paramiko==2.10.3
 #         pip install --no-cache-dir pymongo==4.1.1
 #         pip install --no-cache-dir sshtunnel==0.4.0
@@ -29,4 +29,6 @@ jobs:
 
         - name: Run Python script
           run: |
-            TG_TOKEN=${{ secrets.TG_TOKEN }} USER_ID=${{ secrets.USER_ID }} G_BQ=${{ secrets.G_BQ }} python3 hello.py
+            TG_TOKEN=${{ secrets.TG_TOKEN }} \
+            USER_ID=${{ secrets.USER_ID }} \
+            python3 hello.py
