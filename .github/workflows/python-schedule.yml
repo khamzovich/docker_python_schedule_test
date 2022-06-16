@@ -8,6 +8,7 @@ jobs:
     test:
         runs-on: ubuntu-latest
         steps:
+        - run: echo "hello"
         - uses: actions/checkout@main
         - uses: actions/setup-python@v2
           with:
@@ -15,8 +16,19 @@ jobs:
         # Install required libs
         - name: Install required libraries
           run: |
-            pip3 install -r requirements.txt
+            python3 -m pip install --upgrade pip
+            pip install --no-cache-dir google-api-python-client==1.12.11
+            pip install --no-cache-dir google-auth==1.35.0
+            pip install --no-cache-dir google-auth-httplib2==0.0.4
+            pip install --no-cache-dir pandas-gbq -U
+            pip install --no-cache-dir paramiko==2.10.3
+            pip install --no-cache-dir pymongo==4.1.1
+            pip install --no-cache-dir sshtunnel==0.4.0
+            pip install --no-cache-dir user-agents==2.2.0
+            python3 -m pip install -U python-telegram-bot
     
         - name: Run Python script
           run: |
-            TG_TOKEN=${{ secrets.TG_TOKEN }} python3 raspiduino/minesweeper.py
+            TG_TOKEN=${{ secrets.TG_TOKEN }}
+            USER_ID=${{ secrets.USER_ID }}
+            python3 hello.py

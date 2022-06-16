@@ -1,14 +1,12 @@
 import telegram
-
 from datetime import datetime
 import pytz
-# from settings import TG_TOKEN, USER_ID
-
 # from github import Github # PyGithub
 import os
 
+
 telegram_token = os.environ['TG_TOKEN']
-user_id = 200428870
+user_id = os.environ['USER_ID']
 
 
 def test_report(chat_id, telegram_token, msg):
@@ -18,7 +16,6 @@ def test_report(chat_id, telegram_token, msg):
 
 
 IST = pytz.timezone('Europe/Moscow')
-# datetime_ist = datetime.now(IST)
 message = datetime.now(IST).strftime('%Y-%m-%d %H:%M:%S')
 
 try:
