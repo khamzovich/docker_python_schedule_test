@@ -22,3 +22,5 @@ docker rmi -f $(docker images -aq)
 hello world!
 Welcome to python cron job
 ```
+
+$
