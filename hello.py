@@ -21,24 +21,6 @@ def test_report(chat_id, telegram_token, msg):
     bot.sendMessage(chat_id=chat_id, text=msg)
 
 
-# credentials = service_account.Credentials.from_service_account_info(g_bq)
-# project_id = 'medpoint-gbq'
-
-
-# query = f"""
-#          SELECT
-#             COUNT(DISTINCT user_id) AS n_users
-#          FROM `medpoint-gbq.analytics_250521411.user_info`
-#          """
-
-# # max saved event date
-# n_users_df = pd.read_gbq(query,
-#                          project_id=project_id,
-#                          credentials=credentials,
-#                          max_results=10)
-
-# n_users = str(n_users_df.iloc[0, 0])
-
 n_users = ' 54'
 
 
